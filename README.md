@@ -35,4 +35,4 @@ rm README.md && \
 
 
 <br><br>
-*(steps used to configure <a href="https://github.com/vdarkobar/Home-Cloud/blob/main/shared/Bastion.md#bastion">Bastion Server</a>.)*
+*(steps used to configure <a href="https://github.com/vdarkobar/Home-Cloud/blob/main/shared/Debian.md#debian">Debian Server Template</a>.)*
