@@ -22,7 +22,6 @@ Write changes to the disk > Yes > Continue
 ```
 > *(VM > Hardware > Hard Disk > Disk Action > Resize)*  
   
-<br><br>
 ### *Run this command and follow the instructions*:
 ```
 clear
