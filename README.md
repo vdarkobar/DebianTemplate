@@ -9,7 +9,18 @@
 > *Do not set root password during installation, this way created user will gain sudo privileges.*   
 > *Add SSH Server during installation.*  
 > *For ProxMox VM disk Resize option to work, create VM without SWAP Partition during install process*  
-> *(VM > Hardware > Hard Disk > Disk Action > Resize)*  
+> *(VM > Hardware > Hard Disk > Disk Action > Resize)*
+```bash
+Partition disks > Manual > Continue
+Select disk > SCSI3 QEMU HARDDISK > Continue
+Create new empty Partition > Yes > Continue
+New Partition Size > Continue
+Primary > Continue
+Bootable Flag > On > Done setting up the Partition > Continue
+Finish partitioning and write changes to the disk > Continue
+Return to the partitioning menu > No > Continue
+Write changes to the disk > Yes > Continue
+```  
   
 ### *Run this command and follow the instructions*:
 ```
