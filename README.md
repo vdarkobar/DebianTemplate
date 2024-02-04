@@ -1,2 +1,2 @@
 # DebianTemplate
-Create Your Own Debian 12 Cloud-Init Template
+Create Your Own Debian Cloud-Init Template
