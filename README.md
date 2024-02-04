@@ -3,4 +3,4 @@
 </p>  
   
 # Debian Template
-## Create Your Own Debian Cloud-Init Template
+## Create Your Own Debian Server Cloud-Init Template
