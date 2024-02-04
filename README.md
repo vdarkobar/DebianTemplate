@@ -3,7 +3,7 @@
 </p>  
   
 # Debian Template
-## Create Your Own Debian Server Cloud-Init Template
+## Create Your Own Debian Server Cloud-Init Template to use with Proxmox
 
 > *Create <a href="https://github.com/vdarkobar/Home-Cloud/blob/main/shared/Proxmox.md#proxmox">Proxmox</a> VM: (2CPU/2GBRAM/16GBHDD) using <a href="https://www.debian.org/">Debian server</a>.*  
 > *Do not set root password during installation, this way created user will gain sudo privileges.*   
