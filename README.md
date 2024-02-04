@@ -5,9 +5,11 @@
 # Debian Template
 ## Create Your Own Debian Server Cloud-Init Template
 
-> *Create <a href="https://github.com/vdarkobar/Home-Cloud/blob/main/shared/Proxmox.md#proxmox">Proxmox</a> VM: (1CPU/1GBRAM/16GBHDD) using <a href="https://www.debian.org/">Debian server</a>.  
+> *Create <a href="https://github.com/vdarkobar/Home-Cloud/blob/main/shared/Proxmox.md#proxmox">Proxmox</a> VM: (2CPU/2GBRAM/16GBHDD) using <a href="https://www.debian.org/">Debian server</a>.  
 > *Do not set root password during installation, this way created user will gain sudo privileges.*   
-> Add SSH Server during installation.*  
+> *Add SSH Server during installation.*  
+> *For ProxMox VM disk Resize option to work, create VM without SWAP Partition during install process*  
+> *(VM > Hardware > Hard Disk > Disk Action > Resize)*  
   
 ### *Run this command and follow the instructions*:
 ```
