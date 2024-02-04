@@ -8,8 +8,7 @@
 > *Create <a href="https://github.com/vdarkobar/Home-Cloud/blob/main/shared/Proxmox.md#proxmox">Proxmox</a> VM: (2CPU/2GBRAM/16GBHDD) using <a href="https://www.debian.org/">Debian server</a>.*  
 > *Do not set root password during installation, this way created user will gain sudo privileges.*   
 > *Add SSH Server during installation.*  
-> *For ProxMox VM disk Resize option to work, create VM without SWAP Partition during install process*  
-> *(VM > Hardware > Hard Disk > Disk Action > Resize)*
+> *For ProxMox VM disk Resize option to work, create VM without SWAP Partition during install process*
 ```bash
 Partition disks > Manual > Continue
 Select disk > SCSI3 QEMU HARDDISK > Continue
@@ -20,8 +19,10 @@ Bootable Flag > On > Done setting up the Partition > Continue
 Finish partitioning and write changes to the disk > Continue
 Return to the partitioning menu > No > Continue
 Write changes to the disk > Yes > Continue
-```  
+```
+> *(VM > Hardware > Hard Disk > Disk Action > Resize)*  
   
+<br><br>
 ### *Run this command and follow the instructions*:
 ```
 clear
@@ -33,6 +34,6 @@ rm README.md && \
 ./create.sh
 ```
 
-<br><br>
+
 <br><br>
 *(steps used to configure <a href="https://github.com/vdarkobar/Home-Cloud/blob/main/shared/Bastion.md#bastion">Bastion Server</a>.)*
