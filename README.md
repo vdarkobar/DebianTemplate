@@ -1,5 +1,5 @@
  <p align="left">
-  <a href="https://github.com/vdarkobar/Home-Cloud/blob/main/README.md#debian-server-template">Home</a>
+  <a href="https://github.com/vdarkobar/Home-Cloud/tree/main?tab=readme-ov-file#create-debian-server-template">Home</a>
 </p>  
   
 # Debian Template
