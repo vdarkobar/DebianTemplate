@@ -2,6 +2,8 @@
 
 clear
 
+WORK_DIR=$(pwd)
+
 ######################################################
 # Define ANSI escape sequence for green and red font #
 ######################################################
@@ -709,11 +711,13 @@ while true; do
   esac
 done
 
-#####################################
-# Remove the Script from the system #
-#####################################
 
-echo -e "${RED}This Script Will Self Destruct!${NC}"
+####################################
+# Remove Script(s) from the system #
+####################################
+
 echo
-# VERY LAST LINE OF THE SCRIPT:
-rm -- "$0"
+echo -e "${RED} This Script Will Self Destruct!${NC}"
+echo
+cd ~
+sudo rm -rf $WORK_DIR
