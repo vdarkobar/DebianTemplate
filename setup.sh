@@ -707,17 +707,7 @@ while true; do
     *)
       echo
       echo -e "${YELLOW}Invalid input. Please enter${NC} 'poweroff' or 'exit'"
+      echo
       ;;
   esac
 done
-
-
-####################################
-# Remove Script(s) from the system #
-####################################
-
-echo
-echo -e "${RED} This Script Will Self Destruct!${NC}"
-echo
-cd ~
-sudo rm -rf $WORK_DIR
