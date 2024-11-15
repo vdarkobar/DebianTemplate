@@ -147,7 +147,8 @@ else
         --install qemu-guest-agent,sudo,openssh-server \
         --run-command "echo $HOSTNAME > /etc/hostname" \
         --run-command "old_hostname=\$(awk '/127.0.0.1/ {print \$2}' /etc/hosts)" \
-        --run-command "sed -i \"s/^\\(\s*127\.0\.0\.1\s\+\\)\$old_hostname/\\1$HOSTNAME/\" /etc/hosts" \
+        --run-command "echo Old hostname: \$old_hostname" \
+        --run-command "sed -i \"s/^\(127\.0\.0\.1[[:space:]]\+\)\$old_hostname/\1$HOSTNAME/\" /etc/hosts" \
         --run-command "echo -n > /etc/machine-id"
 fi
 
