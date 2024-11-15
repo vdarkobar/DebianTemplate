@@ -3,6 +3,16 @@
 # Exit on any error
 set -e
 
+# Check if libguestfs-tools is installed
+if ! dpkg -l | grep -q libguestfs-tools; then
+    echo "libguestfs-tools is not installed. Installing it now..."
+    sudo apt-get update -qq
+    sudo apt-get install -y libguestfs-tools
+    echo "libguestfs-tools has been installed."
+else
+    echo "libguestfs-tools is already installed."
+fi
+
 # Check for required commands
 for cmd in wget qm pvesm sha512sum virt-customize; do
     if ! command -v "$cmd" >/dev/null 2>&1; then
