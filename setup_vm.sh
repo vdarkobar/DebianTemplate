@@ -146,8 +146,8 @@ else
     virt-customize -a "$image_path" \
         --install qemu-guest-agent,sudo,openssh-server \
         --run-command "echo $HOSTNAME > /etc/hostname" \
-        --run-command "old_hostname=\$(grep '^127.0.0.1' /etc/hosts | awk '{print \$2}')" \
-        --run-command "sed -i \"s/\\\\<\${old_hostname}\\\\>/${HOSTNAME}/g\" /etc/hosts" \
+        --run-command "old_hostname=\$(awk '/127.0.0.1/ {print \$2}' /etc/hosts)" \
+        --run-command "sed -i \"s/\b\${old_hostname}\b/${HOSTNAME}/g\" /etc/hosts" \
         --run-command "echo -n > /etc/machine-id"
 fi
 
