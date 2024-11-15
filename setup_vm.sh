@@ -124,7 +124,9 @@ qm set "$VMID" --vga serial0
 # Import Debian disk image and set as primary boot disk
 qm importdisk "$VMID" "$TEMP_DIR/$IMAGE_NAME" "$STORAGE"
 qm set "$VMID" --scsi0 "$STORAGE:vm-$VMID-disk-0,discard=on,ssd=1,cache=none" --boot order=scsi0 --ostype l26
+qm start
 
+echo "--------------------------------------------"
 echo "[INFO] VM creation completed successfully!"
 echo "VM ID: $VMID"
 echo "Hostname: $HOSTNAME"
@@ -132,5 +134,4 @@ echo "Storage: $STORAGE"
 echo "Memory: $MEMORY MB"
 echo "Cores: $CORES"
 echo "Network Bridge: $BRIDGE"
-echo "----------------------------------------"
-echo "You can now start the VM using: qm start $VMID"
+echo "--------------------------------------------"
