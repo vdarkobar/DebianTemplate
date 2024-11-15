@@ -169,7 +169,7 @@ qm create "$VMID" \
     --net0 "model=virtio,bridge=$BRIDGE,firewall=1" \
     --description "<div align='center'><img src='https://github.com/vdarkobar/Home-Cloud/blob/main/shared/rsz_debian-logo.png?raw=true'/></div>"
 
-# Configure serial console and VGA
+# Configure serial console and VGA (enables xterm.js console for copy/paste)
 qm set "$VMID" --serial0 socket
 qm set "$VMID" --vga serial0
 
