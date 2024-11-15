@@ -6,8 +6,8 @@ set -e
 # Check if libguestfs-tools is installed
 if ! dpkg -l | grep -q libguestfs-tools; then
     echo "libguestfs-tools is not installed. Installing it now..."
-    sudo apt-get update -qq
-    sudo apt-get install -y libguestfs-tools
+    apt update -qq
+    apt install -y libguestfs-tools
     echo "libguestfs-tools has been installed."
 else
     echo "libguestfs-tools is already installed."
