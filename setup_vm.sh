@@ -132,19 +132,6 @@ else
 fi
 
 # Run virt-customize commands
-#if ! $USER_EXISTS; then
-#    virt-customize -a "$image_path" \
-#        --install qemu-guest-agent,sudo,openssh-server \
-#        --run-command "useradd -m -s /bin/bash $username" \
-#        --password "$username:password:$user_password" \
-#        --run-command "usermod -aG sudo $username" \
-#       --run-command "truncate -s 0 /etc/machine-id"
-#else
-#    virt-customize -a "$image_path" \
-#        --install qemu-guest-agent,sudo,openssh-server \
-#       --run-command "truncate -s 0 /etc/machine-id"
-#fi
-# Run virt-customize commands
 if ! $USER_EXISTS; then
     virt-customize -a "$image_path" \
         --install qemu-guest-agent,sudo,openssh-server \
@@ -159,7 +146,8 @@ else
     virt-customize -a "$image_path" \
         --install qemu-guest-agent,sudo,openssh-server \
         --run-command "echo $HOSTNAME > /etc/hostname" \
-        --run-command "sed -i 's/\<localhost\>/$HOSTNAME/g' /etc/hosts" \
+        --run-command "old_hostname=\$(grep '^127.0.0.1' /etc/hosts | awk '{print \$2}')" \
+        --run-command "sed -i \"s/\\\\<\${old_hostname}\\\\>/${HOSTNAME}/g\" /etc/hosts" \
         --run-command "echo -n > /etc/machine-id"
 fi
 
