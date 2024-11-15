@@ -132,19 +132,38 @@ else
 fi
 
 # Run virt-customize commands
+#if ! $USER_EXISTS; then
+#    virt-customize -a "$image_path" \
+#        --install qemu-guest-agent,sudo,openssh-server \
+#        --run-command "useradd -m -s /bin/bash $username" \
+#        --password "$username:password:$user_password" \
+#        --run-command "usermod -aG sudo $username" \
+#       --run-command "truncate -s 0 /etc/machine-id"
+#else
+#    virt-customize -a "$image_path" \
+#        --install qemu-guest-agent,sudo,openssh-server \
+#       --run-command "truncate -s 0 /etc/machine-id"
+#fi
+# Run virt-customize commands
 if ! $USER_EXISTS; then
     virt-customize -a "$image_path" \
         --install qemu-guest-agent,sudo,openssh-server \
+        --run-command "hostnamectl set-hostname $HOSTNAME" \
+        --run-command "echo $HOSTNAME > /etc/hostname" \
+        --run-command "sed -i 's/127.0.1.1.*/127.0.1.1\t$HOSTNAME/' /etc/hosts" \
         --run-command "useradd -m -s /bin/bash $username" \
         --password "$username:password:$user_password" \
         --run-command "usermod -aG sudo $username" \
-        --run-command "truncate -s 0 /etc/machine-id"
+        --run-command "passwd -l root" \
+        --run-command "echo -n > /etc/machine-id"
 else
     virt-customize -a "$image_path" \
         --install qemu-guest-agent,sudo,openssh-server \
-        --run-command "truncate -s 0 /etc/machine-id"
+        --run-command "hostnamectl set-hostname $HOSTNAME" \
+        --run-command "echo $HOSTNAME > /etc/hostname" \
+        --run-command "sed -i 's/127.0.1.1.*/127.0.1.1\t$HOSTNAME/' /etc/hosts" \
+        --run-command "echo -n > /etc/machine-id"
 fi
-
 
 # Verify storage space
 image_size=$(stat -f --format="%s" "$IMAGE_PATH")
