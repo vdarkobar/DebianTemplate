@@ -148,9 +148,8 @@ fi
 if ! $USER_EXISTS; then
     virt-customize -a "$image_path" \
         --install qemu-guest-agent,sudo,openssh-server \
-        --run-command "hostnamectl set-hostname $HOSTNAME" \
         --run-command "echo $HOSTNAME > /etc/hostname" \
-        --run-command "sed -i 's/127.0.1.1.*/127.0.1.1\t$HOSTNAME/' /etc/hosts" \
+        --run-command "echo '127.0.1.1 $HOSTNAME' >> /etc/hosts" \
         --run-command "useradd -m -s /bin/bash $username" \
         --password "$username:password:$user_password" \
         --run-command "usermod -aG sudo $username" \
@@ -159,9 +158,8 @@ if ! $USER_EXISTS; then
 else
     virt-customize -a "$image_path" \
         --install qemu-guest-agent,sudo,openssh-server \
-        --run-command "hostnamectl set-hostname $HOSTNAME" \
         --run-command "echo $HOSTNAME > /etc/hostname" \
-        --run-command "sed -i 's/127.0.1.1.*/127.0.1.1\t$HOSTNAME/' /etc/hosts" \
+        --run-command "echo '127.0.1.1 $HOSTNAME' >> /etc/hosts" \
         --run-command "echo -n > /etc/machine-id"
 fi
 
