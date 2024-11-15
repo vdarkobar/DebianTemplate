@@ -138,18 +138,11 @@ if ! $USER_EXISTS; then
         --run-command "useradd -m -s /bin/bash $username" \
         --password "$username:password:$user_password" \
         --run-command "usermod -aG sudo $username" \
-        --run-command "rm /etc/ssh/ssh_host_*" \
         --run-command "truncate -s 0 /etc/machine-id"
-    # The following commands are currently commented out:
-    # --run-command "passwd -l root"
-    # --run-command "echo -n > /etc/machine-id"
 else
     virt-customize -a "$image_path" \
         --install qemu-guest-agent,sudo,openssh-server \
-        --run-command "rm /etc/ssh/ssh_host_*" \
         --run-command "truncate -s 0 /etc/machine-id"
-    # The following command is currently commented out:
-    # --run-command "echo -n > /etc/machine-id"
 fi
 
 
