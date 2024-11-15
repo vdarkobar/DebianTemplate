@@ -169,6 +169,10 @@ qm create "$VMID" \
     --net0 "model=virtio,bridge=$BRIDGE,firewall=1" \
     --description "<div align='center'><img src='https://github.com/vdarkobar/Home-Cloud/blob/main/shared/rsz_debian-logo.png?raw=true'/></div>"
 
+# Configure serial console and VGA
+qm set "$VMID" --serial0 socket
+qm set "$VMID" --vga serial0
+
 # Import Debian disk image and set as primary boot disk
 qm importdisk "$VMID" "$IMAGE_PATH" "$STORAGE"
 qm set "$VMID" --scsi0 "$STORAGE:vm-$VMID-disk-0,discard=on,ssd=1,cache=none" --boot order=scsi0 --ostype l26
